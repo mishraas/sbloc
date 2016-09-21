@@ -15,6 +15,8 @@ module.exports ={
 		'!styles/**',
 		'!target/**',
 		'!fonts/**'
-		]
+		],
+	bundleJsFiles:['./app/index.js'],
+	bundlecsFiles:[ './target/*.css']
 
 }
