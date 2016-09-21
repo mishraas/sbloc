@@ -6,12 +6,6 @@
 //components = require('./components');
 
 
-
-
-
-
-
-
 // App
 
 // require sbloc module and component

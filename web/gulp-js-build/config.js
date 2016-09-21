@@ -1,7 +1,7 @@
 module.exports ={
 	appDir:"./app/",
 	targetDir:"./target/",
-	staticDir:"./",
+	staticDir:"./web/",
 	sass:"./styles/*.scss",
 	fontDir:"./fonts/**/*",
 	imageDir:"./images/**/*",
