@@ -16,7 +16,15 @@ module.exports ={
 		'!target/**',
 		'!fonts/**'
 		],
-	bundleJsFiles:['./app/index.js'],
-	bundlecsFiles:[ './target/*.css']
+	bundleJsFiles:[
+		'./node_modules/angular.*.min.js',
+		'./node_modules/angular-animate/*.min.js',
+		'./node_modules/angular-cookies/*.min.js',
+		'./node_modules/angular-sanitize/*.min.js',
+		'./node_modules/angular-ui-bootstrap/dist/*.js',
+		'./app/index.js'],
+	bundlecsFiles:[ 
+			'./node_modules/bootstrap/dist/css/*.css',
+			'./target/*.css']
 
 }
