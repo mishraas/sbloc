@@ -15,14 +15,14 @@ require('./lib/fonts')(gulp,config);
 require('./lib/images')(gulp,config);
 require('./lib/sass')(gulp,config);
 require('./lib/uglify')(gulp,config);
-//require('./lib/htmls')(gulp,config);
+
 
 gulp.task('build', ['lint','build-css','minify-css','scripts','compress','fonts','images']);
 
 gulp.task('watch', function() {
   gulp.watch(config.appDir+'index.js',['scripts','compress']);
   gulp.watch(config.sass,['build-css','minify-css']);
-//  gulp.watch(config.staticDir+'index.html',['htmls']);
+ // gulp.watch(config.lintDirList,['lint']);
 });
 
 
