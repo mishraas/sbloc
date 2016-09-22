@@ -15,9 +15,10 @@ require('./lib/fonts')(gulp,config);
 require('./lib/images')(gulp,config);
 require('./lib/sass')(gulp,config);
 require('./lib/uglify')(gulp,config);
+require('./lib/htmls')(gulp,config);
+require('./lib/ngTemplateCache')(gulp,config);
 
-
-gulp.task('build', ['lint','build-css','minify-css','scripts','compress','fonts','images']);
+gulp.task('build', ['lint','build-css','minify-css','scripts','compress','fonts','images','htmls','templates']);
 
 gulp.task('watch', function() {
   gulp.watch(config.appDir+'index.js',['scripts','compress']);

@@ -49,4 +49,5 @@ Temporary Items
 # Dependency directories
 node_modules/*
 web/node_modules/*
-web/target/*
+public/*
+web/app/templates.js
