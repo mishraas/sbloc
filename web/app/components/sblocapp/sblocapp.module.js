@@ -1,4 +1,4 @@
 "use strict";
 
-angular.module('sblocapp', []);
+angular.module('sblocapp', ['genTemplates']);
 

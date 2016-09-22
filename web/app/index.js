@@ -1,10 +1,11 @@
 'use strict';
-var angular = require('angular');
-window.$ = require('jquery');
-var window.jQuery = window.$;
+require('angular');
+window.jQuery = require('jquery');
+//var window.jQuery = window.$;
 require('bootstrap-sass');
-require('angular-bootstrap/ui-bootstrap');
-require('angular-bootstrap/ui-bootstrap-tpls');
+require('angular-ui-bootstrap');
+//require('angular-bootstrap/ui-bootstrap-tpls');
 
 require('./core');
 
+require('./templates');
