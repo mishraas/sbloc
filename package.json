@@ -19,8 +19,11 @@
     "gulp-less": "^3.1.0",
     "gulp-ng-template": "^0.2.3",
     "gulp-path": "^3.0.3",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^2.0.0",
-    "gulp-util": "^3.0.7"
+    "gulp-util": "^3.0.7",
+    "run-sequence": "^1.2.1"
   }
 }

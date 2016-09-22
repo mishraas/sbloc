@@ -12,11 +12,14 @@ module.exports ={
 	targetFontDir:'fonts/',
 	targetImageDir:'images/',
 	lintDirList: [
-		'./app/**/*.js'
+		'./app/**/*.js',
+		'!./app/**/*templates.js'
 			],
 	bundleJsFiles:[
 		'./app/index.js'],
 	bundlecssFiles:[ 
-			'./target/*.css']
+			'../public/*.css']
 
 }
+
+

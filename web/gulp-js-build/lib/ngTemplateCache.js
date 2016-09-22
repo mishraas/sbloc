@@ -3,7 +3,7 @@ var ngTemplate = require('gulp-ng-template')
 
 module.exports = function(gulp,config){
 
-	gulp.task('templates',function(){
+	gulp.task('ngTemplateCache',function(){
 		return gulp.src(config.ngTemplateSourceDir)
 		    .pipe(ngTemplate({
 		      moduleName: 'genTemplates',

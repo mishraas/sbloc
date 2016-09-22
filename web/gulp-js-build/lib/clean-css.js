@@ -1,14 +1,14 @@
 'use strict';
 
 var cleanCSS = require('gulp-clean-css');
-var concat = require('gulp-concat');
+var rename = require('gulp-rename');
 
 
 module.exports = function(gulp,config){
 	gulp.task('minify-css',function(){
 		return gulp.src(config.bundlecssFiles)
+				.pipe(rename( 'style.min.css'))
 			    .pipe(cleanCSS())
-			    .pipe(concat('style.min.css'))
 			    .pipe(gulp.dest(config.targetDir));
 
 	})
