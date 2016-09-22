@@ -1,10 +1,4 @@
 "use strict";
 
-var angular = require('angular');
+angular.module('sblocapp', []);
 
-var sbloc = angular.module('sbloc', []);
-
-
-
-
-module.exports = sbloc;
