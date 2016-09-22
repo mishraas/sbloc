@@ -18,7 +18,7 @@ function HeaderController($scope, $element, $attrs) {
 
 var header = angular.module('sblocapp').component('headerComp', {
 	bindings : {},
-	templateUrl : 'app/components/sblocapp/header/header.html',
+	templateUrl : 'sblocapp/header/header.html',
 	controller : HeaderController
 
 });
