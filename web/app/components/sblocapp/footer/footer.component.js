@@ -1,21 +1,10 @@
 "use strict";
 
-var angular = require('angular');
-var app = angular.module('sbloc');
-
-var footer = app.component('footer', {
-
+angular.module('sblocapp').component('footerComp', {
 	bindings : {},
-	templateUrl : '',
+	templateUrl : 'app/components/sblocapp/footer/footer.html',
 	controller : function(){
-		this.message = "©Copyright 2016 / All Rights Reserved - Sapient";
+		//this.message = "©Copyright 2016 / All Rights Reserved - Sapient";
 	}
 
 });
-
-
-
-
-
-
-module.exports = footer;
