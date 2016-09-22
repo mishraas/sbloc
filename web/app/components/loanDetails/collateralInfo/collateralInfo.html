@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <uib-accordion close-others="true">
+            <div uib-accordion-group class="panel-default" is-open="false">
+                <uib-accordion-heading>
+                    Collateral Info
+                    <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': false, 'glyphicon-chevron-right': !false}"></i>
+                </uib-accordion-heading>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <h4><strong>Add Collateral Account</strong></h4>
+                            <div>
+                                <input type="checkbox" id="cbox1" value="Collateral A/C 1"> Collateral A/C 1</div>
+                            <div>
+                                <input type="checkbox" id="cbox2" value="Collateral A/C 2"> Collateral A/C 2</div>
+                            <div>
+                                <input type="checkbox" id="cbox3" value="Collateral A/C 3"> Collateral A/C 3</div>
+                            <div>
+                                <input type="checkbox" id="cbox4" value="Collateral A/C 4"> Collateral A/C 4</div>
+                            <div>
+                                <input type="checkbox" id="cbox5" value="Collateral A/C 5"> Collateral A/C 5</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <button class="btn btn-primary">Generate Collateral Value</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-xs-8">
+                        <div class="form-group">
+                            <h4><strong>Add Collateral Account</strong></h4>
+                            <table class="table table-bordered table-striped table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th>Security Name</th>
+                                        <th>CUSIP</th>
+                                        <th>QTY</th>
+                                        <th>PRICE</th>
+                                        <th>MV</th>
+                                        <th>COLLATERAL V.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Microsoft Corp.</td>
+                                        <td>23123</td>
+                                        <td>100</td>
+                                        <td>$33</td>
+                                        <td>$3300</td>
+                                        <td>$2310</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Apple</td>
+                                        <td>Pending Approval</td>
+                                        <td>50</td>
+                                        <td>$40</td>
+                                        <td>$2000</td>
+                                        <td>$1400</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cash</td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <td>$2000</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5"><strong>Total</strong></td>
+                                        <td><strong>$5710</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group ">
+                                        <label for="loanAmount ">Loan Notional Amount</label>
+                                        <input type="text " class="form-control " id="loanAmount " value="$1,00,000">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group ">
+                                        <label for="collateralValue ">Collateral Value</label>
+                                        <input type="text " class="form-control " id="collateralValue " value="$80,000">
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="form-group ">
+                                        <label for="loanAmount ">Collateral Sufficient to Approve (Y/N)</label>
+                                        <button class="btn btn-success btn-block">YES</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-accordion>
+    </div>
+</div>
