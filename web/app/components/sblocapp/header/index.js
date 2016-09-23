@@ -1,4 +1,4 @@
 "use strict";
 require('./header.component');
 
-module.export = angular.module('sblocapp');
+module.exports = angular.module('sblocapp');

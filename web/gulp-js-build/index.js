@@ -20,10 +20,9 @@ require('./lib/uglify')(gulp,config);
 require('./lib/htmls')(gulp,config);
 require('./lib/ngTemplateCache')(gulp,config);
 
-//gulp.task('lint-test',['lint']);
 
 gulp.task('build', function(callback) {
-	return runSequence('ngTemplateCache', 'scripts',  ['htmls', 'fonts', 'images', 'build-css'], ['compress', 'minify-css'],callback);
+	return runSequence('lint', 'ngTemplateCache', 'scripts',  ['htmls', 'fonts', 'images', 'build-css'], ['compress', 'minify-css'],callback);
 });
 
 //gulp.task('build', ['lint','build-css','minify-css','scripts','compress','fonts','images','htmls','ngTemplateCache']);

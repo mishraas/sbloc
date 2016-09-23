@@ -1,7 +1,7 @@
 "use strict";
 
-function HeaderController($scope, $element, $attrs) {
-  var ctrl = this;
+function HeaderController() {
+  //var ctrl = this;
   
   /*ctrl.messages = {
     "appHeading": "SBLOC Block Chain POC",
@@ -14,9 +14,9 @@ function HeaderController($scope, $element, $attrs) {
   //Set flags based upon the user authentication
   //Set username property after log-in
 
-};
+}
 
-var header = angular.module('sblocapp').component('headerComp', {
+angular.module('sblocapp').component('headerComp', {
 	bindings : {},
 	templateUrl : 'sblocapp/header/header.html',
 	controller : HeaderController

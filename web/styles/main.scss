@@ -1,4 +1,7 @@
-$color_royal_purple_approx: pink;
+@import './node_modules/bootstrap-sass/assets/stylesheets/_bootstrap';
+
+
+$color_royal_purple_approx: red;
 
 .test {
 	color: $color_royal_purple_approx;
