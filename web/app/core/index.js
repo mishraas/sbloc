@@ -11,6 +11,7 @@ var core = angular.module('core', [
 	'ngSanitize',
 	'genTemplates',
 	'ngRoute',
+	'ui.bootstrap',
 	//'ngTouch',
 	require('../components/sblocapp').name,
 	require('../components/loanDetails').name,

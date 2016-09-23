@@ -4,7 +4,7 @@ module.exports =
 
 	source:{
 		appDir: "./app",
-		fontDir: "./fonts",
+		fontDir: "./fonts/*.*",
 		imageDir: "./images",
 		sassDir: "./styles",
 		ngTemplatesList: [
@@ -16,8 +16,8 @@ module.exports =
 
 	target:{	
 		publicDir: "../public",
-		fontDir: ["/fonts/**/",
-					"./node_modules/bootstrap/fonts/**/*"
+		fontDir: [
+					"/fonts/bootstrap"
 				],
 		imageDir: "/images"
 		},
