@@ -2,8 +2,8 @@ module.exports = {
 
 	source:{
 		appDir: "./app",
-		fontDir: ["/fonts/**",
-					"./node_modules/bootstrap-sass/assets/fonts/**"
+		fontDir: ["./fonts/**/*",
+					"./node_modules/bootstrap-sass/assets/fonts/**/*"
 				],
 		imageDir: "./images",
 		sassDir: "./styles",
