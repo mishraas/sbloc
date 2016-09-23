@@ -8,4 +8,5 @@ require('angular-ui-bootstrap');
 
 require('./core');
 
-require('./templates');
+
+require('./temp/templates');

@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('loanDetails').component('loanDetailsComp', {
+angular.module('loanDetails', []).component('loanDetailsComp', {
 
 	bindings:{},
 	templateUrl: 'loanDetails/loanDetails.html',

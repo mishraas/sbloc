@@ -8,21 +8,16 @@ angular.module('core', [
 	'ngCookies',
 	'ngAnimate',
 	'ngSanitize',
+	'genTemplates',
 	//'ngTouch',
-	require('../components/sblocapp').name
-	//require('../components/loanDetails').name
-	//require('../components/loanListing').name,
-	//require('../components/login').name
+	require('../components/sblocapp').name,
+	require('../components/loanDetails').name,
+	require('../components/loanListing').name,
+	require('../components/login').name
 	// Core Services, filters etc.
 	
 	]);
 
-
-
-	/*$routeConfig: [
-      { path: '/', component: 'sblocComp', name: 'home', useAsDefault: true },
-      { path: '/**', redirectTo: ['home']}
-    ]*/
 
 
 module.exports = angular.module('core');
