@@ -7,13 +7,13 @@ var sourcemaps = require('gulp-sourcemaps');
 
 module.exports = function (gulp,config){
 
-	gulp.task('compress', function (cb) {
-	  return gulp.src(config.targetDir+'*.js')
+	gulp.task('uglify', function () {
+		  return gulp.src(config.target.publicDir+'/*.js')
 		  	.pipe(sourcemaps.init())	  	
-			.pipe(rename('index.min.js'))
+			.pipe(rename(config.jsMainFileName+'.min.js'))
 	  		.pipe(uglify())
 	  		.pipe(sourcemaps.write('./'))
-	  		.pipe(gulp.dest(config.targetDir));
+	  		.pipe(gulp.dest(config.target.publicDir));
 	});
 
 }

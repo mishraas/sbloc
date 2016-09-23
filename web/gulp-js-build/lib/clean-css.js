@@ -5,11 +5,11 @@ var rename = require('gulp-rename');
 
 
 module.exports = function(gulp,config){
-	gulp.task('minify-css',function(){
-		return gulp.src(config.bundlecssFiles)
-				.pipe(rename( 'style.min.css'))
+	gulp.task('cleanCss',function(){
+		return gulp.src(config.target.publicDir+'/*.css')
+				.pipe(rename( config.cssMainFileName+'.min.css'))
 			    .pipe(cleanCSS())
-			    .pipe(gulp.dest(config.targetDir));
+			    .pipe(gulp.dest(config.target.publicDir));
 
 	})
 

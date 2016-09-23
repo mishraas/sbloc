@@ -3,9 +3,8 @@
 
 module.exports = function(gulp,config){
 	gulp.task('fonts',function(){
-		return gulp.src(config.fontDir)
-			  
-			    .pipe(gulp.dest(config.targetDir+config.targetFontDir));
+		return gulp.src(config.source.fontDir+'/**/*')
+			   .pipe(gulp.dest(config.target.publicDir+config.target.fontDir));
 
 	})
 

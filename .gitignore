@@ -50,4 +50,4 @@ Temporary Items
 node_modules/*
 web/node_modules/*
 public/*
-web/app/templates.js
+web/app/temp/*

@@ -19,24 +19,28 @@ require('./lib/sass')(gulp,config);
 require('./lib/uglify')(gulp,config);
 require('./lib/htmls')(gulp,config);
 require('./lib/ngTemplateCache')(gulp,config);
+require('./lib/clean')(gulp,config);
 
-
-gulp.task('build', function(callback) {
-	return runSequence('lint', 'ngTemplateCache', 'scripts',  ['htmls', 'fonts', 'images', 'build-css'], ['compress', 'minify-css'],callback);
+gulp.task('build-test', function() {
+	return runSequence('clean');
 });
 
-//gulp.task('build', ['lint','build-css','minify-css','scripts','compress','fonts','images','htmls','ngTemplateCache']);
+gulp.task('build', function() {
+	return runSequence('clean','lint', 'ngTemplateCache', 'browserify',  ['htmls', 'fonts', 'images', 'build-css'], ['uglify', 'cleanCss']);
+});
+
+//gulp.task('build', ['lint','build-css','cleanCss','browserify','uglify','fonts','images','htmls','ngTemplateCache']);
 
 gulp.task('watch', function() {
-//  gulp.watch([config.appDir+'index.js',config.appDir + '/**/*.html'],['scripts','compress']);
-//  gulp.watch(config.sass,['build-css','minify-css']);
+//  gulp.watch([config.appDir+'index.js',config.appDir + '/**/*.html'],['browserify','uglify']);
+//  gulp.watch(config.sass,['build-css','cleanCss']);
 
   	gulp.watch([config.appDir+'index.js',config.appDir + '*.html'], function() {
-		runSequence('ngTemplateCache', 'scripts','compress');
+		runSequence('ngTemplateCache', 'browserify','uglify');
 	});
 
 	gulp.watch(config.sass,function(){
-		runSequence('build-css','minify-css')
+		runSequence('build-css','cleanCss')
 	});
 
 	//gulp.watch(config.fontsDir + '/**/*', ['fonts']);
@@ -47,7 +51,7 @@ gulp.task('watch', function() {
 });
 
 
-gulp.task('default', ['build', 'watch'], function () {
+gulp.task('default', ['build'], function () {
   return gutil.log('Gulp is running!')
 });
 module.exports = {}
