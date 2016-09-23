@@ -16,7 +16,9 @@ module.exports =
 
 	target:{	
 		publicDir: "../public",
-		fontDir: "/fonts",
+		fontDir: ["/fonts/**/",
+					"./node_modules/bootstrap/fonts/**/*"
+				],
 		imageDir: "/images"
 		},
 
