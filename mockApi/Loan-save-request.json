@@ -1,0 +1,24 @@
+{
+  "loanDetails": [
+    {
+      "loanAmount": "",
+      "useOfLoan": "",
+      "status":"hold",
+
+    }
+  ],
+  "borrowerDetails": [
+    {
+    	"emailId":"abc@xyz.com"
+    }
+
+  ],
+  "advisorDetails":{
+  	"emailId":"advisor@xyz.com"
+  },
+  "collateralDetails": [
+    {
+    	
+    }
+  ]
+}
