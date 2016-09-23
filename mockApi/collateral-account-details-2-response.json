@@ -1,0 +1,46 @@
+{
+  "collateralAccountDetails": [
+    {
+      "1": {
+        "SecurityName": "Misrosoft corp",
+        "cusip": "23123",
+        "qty": "100",
+        "price": "33",
+        "mv": "3300",
+        "collateralValue": "2310"
+      },
+      "2": {
+        "SecurityName": "Misrosoft corp",
+        "cusip": "23123",
+        "qty": "100",
+        "price": "33",
+        "mv": "3300",
+        "collateralValue": "2310"
+      },
+      "3": {
+        "SecurityName": "security 1",
+        "cusip": "23123",
+        "qty": "100",
+        "price": "33",
+        "mv": "3300",
+        "collateralValue": "2310"
+      },
+      "4": {
+        "SecurityName": "security 2",
+        "cusip": "23123",
+        "qty": "90",
+        "price": "33",
+        "mv": "4300",
+        "collateralValue": "5310"
+      },
+      "5": {
+        "SecurityName": "security 3",
+        "cusip": "23123",
+        "qty": "60",
+        "price": "33",
+        "mv": "3900",
+        "collateralValue": "4310"
+      }
+    }
+  ]
+}

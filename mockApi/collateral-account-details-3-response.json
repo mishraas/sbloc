@@ -1,0 +1,22 @@
+{
+  "collateralAccountDetails": [
+    
+{
+      "columns": ["ID", "SecurityName","cusip","qty","mv","collateralValue"],
+      "data": {
+         [ "Misrosoft corp", "23123","100","33","3300","2310"] ,
+         ["Misrosoft corp","23123","100","33","3300", "2310" ],
+      [
+        "security 1",
+        "23123",
+        "100",
+        "33",
+        "3300",
+        "2310"
+      ]
+    
+
+    }
+}
+ ] 
+}

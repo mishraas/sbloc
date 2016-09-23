@@ -1,0 +1,10 @@
+{
+	"emailId": "abc@xyz.com",
+ 
+  "collateralAccount": [
+    {
+      "1": "Collateral Account 1"
+    }
+    ]
+    
+}
