@@ -1,7 +1,11 @@
 var express = require('express');
 var path    = require("path");
+var apiRouter = require('./api/apiRouter');
 
 var app = express();
+
+
+app.use('/api', apiRouter);
 
 app.use(express.static('./public'));
 
