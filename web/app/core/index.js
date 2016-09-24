@@ -3,6 +3,7 @@ require('angular-cookies');
 require('angular-animate');
 require('angular-sanitize');
 require('angular-route');
+require('ngcomponentrouter');
 //require('angular-touch');
 
 var core = angular.module('core', [
@@ -12,6 +13,7 @@ var core = angular.module('core', [
 	'genTemplates',
 	'ngRoute',
 	'ui.bootstrap',
+	'ngComponentRouter',
 	//'ngTouch',
 	require('../components/sblocapp').name,
 	require('../components/loanDetails').name,
@@ -20,17 +22,17 @@ var core = angular.module('core', [
 	// Core Services, filters etc.
 	
 	]);
+core.value('$routerRootComponent', 'sblocComp');
 
-
-core.config(['$routeProvider', function($routeProvider) {
+/*core.config(['$routeProvider', function($routeProvider) {
             $routeProvider
-                .when('/', { template: '<loan-details-comp></loan-details-comp>' })
-                .when('/login', { template: '<login-comp></login-comp>' })
+                .when('/', { template: '<login-comp></login-comp>' })
+                .when('/login', { template: '' })
                 .when('/loandetails', { template: '<loan-details-comp></loan-details-comp>' })
                 .when('/loan', { template: '<loan-details-comp></loan-details-comp>' })
                 .when('/loanlisting', { template: '<loan-listing-comp></loan-listing-comp>' })
-                .otherwise({ redirectTo: '/loan' });
-        }]);
+                .otherwise({ redirectTo: '/login' });
+        }]);*/
 
 
 module.exports = angular.module('core');
