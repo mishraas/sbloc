@@ -10,7 +10,7 @@ module.exports = {
 		ngTemplatesList: [
 			'./app/components/**/*.html',
 			'./app/core/**/*.html'
-		],
+		]
 
 	},
 

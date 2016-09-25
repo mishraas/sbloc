@@ -2,16 +2,18 @@
 require('angular-cookies');
 require('angular-animate');
 require('angular-sanitize');
-require('angular-route');
-//require('angular-touch');
+require('ngComponentRouter');
+require('angular-ui-bootstrap');
+require('angular-touch');
 
 var core = angular.module('core', [
 	'ngCookies',
 	'ngAnimate',
 	'ngSanitize',
 	'genTemplates',
-	'ngRoute',
-	//'ngTouch',
+	'ngComponentRouter',
+	'ui.bootstrap',
+	'ngTouch',
 	require('../components/sblocapp').name,
 	require('../components/loanDetails').name,
 	require('../components/loanListing').name,
@@ -20,8 +22,22 @@ var core = angular.module('core', [
 	
 	]);
 
+core.value('$routerRootComponent', 'coreComp');
+core.component('coreComp', {
+	template: '<sbloc-comp></sbloc-comp>',
+	$routeConfig: [
+		{ path: '/', component: 'loginComp', name: 'LoanDetails' },
+		{ path: '/loanlisting', component: 'loanListingComp', name: 'LoanListing' },
+		{ path: '/login', component: 'loginComp', name: 'Login' },
+		{ path: '/loan', component: 'loanDetailsComp', name: 'LoanDetails' },
+		{ path: '/**', component: 'loanDetailsComp', name: 'NotFound' }
+	]
+});
 
-core.config(['$routeProvider', function($routeProvider) {
+
+
+
+/*core.config(['$routeProvider', function($routeProvider) {
             $routeProvider
                 .when('/', { template: '<loan-details-comp></loan-details-comp>' })
                 .when('/login', { template: '<login-comp></login-comp>' })
@@ -30,6 +46,6 @@ core.config(['$routeProvider', function($routeProvider) {
                 .when('/loanlisting', { template: '<loan-listing-comp></loan-listing-comp>' })
                 .otherwise({ redirectTo: '/loan' });
         }]);
-
+*/
 
 module.exports = angular.module('core');
