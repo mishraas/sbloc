@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').component('routeComp', {
-	template: '',
+angular.module('core').component('coreComp', {
+	template: '<sbloc-app></sbloc-app>',
 	$routeConfig: [
 		{ path: '/', component: 'loginComp', name: 'LoanDetails' },
 		{ path: '/loanlisting', component: 'loanListingComp', name: 'LoanListing' },
@@ -9,5 +9,5 @@ angular.module('core').component('routeComp', {
 		{ path: '/loan', component: 'loanDetailsComp', name: 'LoanDetails' },
 		{ path: '/**', component: 'loginComp', name: 'NotFound' }
 	]
-}).value('$routerRootComponent', 'routeComp');
+}).value('$routerRootComponent', 'coreComp');
 
