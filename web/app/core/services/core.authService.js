@@ -2,13 +2,18 @@ angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', functi
 
     // create user variable
 
-
+    function isLoggedIn(){
+            var isLoggedIn = $cookies.get('user-token');
+            console.log(isLoggedIn + " :user-token");
+            return isLoggedIn;
+        }
 
     function login(user) {
 
         // create a new instance of deferred
         var deferred = $q.defer();
 
+        
         // send a post request to the server
         $http.post('/api/login', {
                 email: user.email,
@@ -62,10 +67,46 @@ angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', functi
     }
     // return available functions for use in the controllers
     return ({
-
+        isLoggedIn:isLoggedIn,
         login: login,
         logout: logout
 
     });
 
+}]);
+
+angular.module('core').factory('AuthhttpIntercepter', ['$location', '$cookies', '$injector',  function($location, $cookies, $injector) {
+
+    return {
+        request: function(config) {
+            
+            var AuthService = $injector.get('AuthService');
+
+            if (AuthService.isLoggedIn()) {
+               
+                console.log("user is logged in");
+            } else {
+                $location.path('/login');
+            }
+            return config;
+        },
+
+        requestError: function(config) {
+
+            return config;
+        },
+
+        response: function(res) {
+
+            console.log(res);
+            $cookies.put('user-token', res["user-token"]);
+            $cookies.put('user-role', res["role"]);
+
+            return res;
+        },
+
+        responseError: function(res) {
+            return res;
+        }
+    };
 }]);
