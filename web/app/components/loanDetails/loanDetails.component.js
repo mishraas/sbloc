@@ -1,9 +1,23 @@
 "use strict";
 
-angular.module('loanDetails', []).component('loanDetailsComp', {
+var loanDetailsController = function(loanDetailService) {
+    var $ctrl = this;
 
-	bindings:{},
-	templateUrl: 'loanDetails/loanDetails.html',
-	controller:function(){}
+    $ctrl.init = function() {
+        loanDetailService.getLoanReasons().then(function(reasonData) {
+            $ctrl.loanReasons = reasonData.data['loan-reason'];
+        });
 
-});
+    };
+    $ctrl.init();
+};
+
+loanDetailsController.$inject = ['loanDetailService'];
+
+var loanDetailsConfig = {
+    bindings: {},
+    templateUrl: 'loanDetails/loanDetails.html',
+    controller: loanDetailsController
+};
+
+module.exports = angular.module('loanDetails').component('loanDetailsComp', loanDetailsConfig);

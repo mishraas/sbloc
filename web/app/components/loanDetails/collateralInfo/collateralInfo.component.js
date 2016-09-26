@@ -1,9 +1,17 @@
 "use strict";
 
-angular.module('loanDetails').component('collateralInfoComp', {
+var collateralInfoController = function() {
 
-	bindings:{},
-	templateUrl: 'loanDetails/collateralInfo/collateralInfo.html',
-	controller:function(){}
+};
 
-});
+collateralInfoController.$inject = ['loanDetailService'];
+
+var collateralInfoConfig = {
+    bindings: {
+        loanReasons: '='
+    },
+    templateUrl: 'loanDetails/collateralInfo/collateralInfo.html',
+    controller: collateralInfoController
+};
+
+angular.module('collateralInfo').component('collateralInfoComp', collateralInfoConfig);

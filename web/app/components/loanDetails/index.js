@@ -1,4 +1,7 @@
 "use strict";
+
+
+require('./loanDetails.module');
 require('./loanDetails.component');
 require('./collateralInfo');
 require('./loanInfo');
