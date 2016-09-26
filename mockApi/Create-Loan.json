@@ -1,0 +1,73 @@
+{
+  "loan": {
+    "loanInfo": {
+      "loanAmount": "",
+      "useOfLoan": ""
+    },
+    "borrowerInfo": {
+      "mobileNumber": "1111222233334444",
+      "emailId": "abc@xyz.com",
+      "firstName": "Francis",
+      "iiddleName": "B",
+      "lastName": "Whitmann"
+    },
+    "collateralInfo": [
+      {
+        "id": "1",
+        "name": "Collateral Account 2"
+      },
+      {
+        "id": "2",
+        "name": "Collateral Account 2"
+      },
+      {
+        "id": "3",
+        "name": "Collateral Account 3"
+      },
+      {
+        "id": "4",
+        "name": "Collateral Account 4"
+      },
+      {
+        "id": "5",
+        "name": "Collateral Account 5"
+      }
+    ],
+    "collateralDetails": {
+      "columns": [
+        "ID",
+        "SecurityName",
+        "cusip",
+        "qty",
+        "mv",
+        "collateralValue"
+      ],
+      "data": [
+        [
+          "Microsoft corp",
+          "23123",
+          "100",
+          "33",
+          "3300",
+          "2310"
+        ],
+        [
+          "Apple corp",
+          "23123",
+          "100",
+          "33",
+          "3300",
+          "2310"
+        ],
+        [
+          "Google corp",
+          "23123",
+          "100",
+          "33",
+          "3300",
+          "2310"
+        ]
+      ]
+    }
+  }
+}
