@@ -21,3 +21,4 @@ angular.module('core', [
 	// Core Services, filters etc.
 	
 	]);
+
