@@ -1,0 +1,1 @@
+angular.module('loanDetails',['loanInfo','collateralInfo']);

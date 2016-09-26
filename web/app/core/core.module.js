@@ -21,3 +21,4 @@ angular.module('core', [
 	require('../components/login').name
 	
 	]);
+

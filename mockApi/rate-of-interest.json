@@ -1,4 +1,5 @@
 {
     "rateOfInterest": "4.25%",
-    "LiborPeriod": "1"
+    "LiborPeriod": "1",
+    "spread":"spread"
 }
