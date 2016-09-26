@@ -1,3 +1,3 @@
 "use strict";
 
-angular.module('loanInfo',['services']);
+angular.module('loanInfo',[]);

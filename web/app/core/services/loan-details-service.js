@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('services', []).service('loanDetailService', function($http, $q) {
+angular.module('core').service('loanDetailService', function($http, $q) {
     var self = this;
     var baseApiUrl = '/api';
     var urls = {

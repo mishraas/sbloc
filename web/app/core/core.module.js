@@ -14,7 +14,6 @@ angular.module('core', [
 	'ngComponentRouter',
 	'ui.bootstrap',
 	'ngTouch',
-	require('./services').name,
 	require('../components/sblocapp').name,
 	require('../components/loanDetails').name,
 	require('../components/loanListing').name,
