@@ -25,5 +25,8 @@
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
     "run-sequence": "^1.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.10.2"
   }
 }

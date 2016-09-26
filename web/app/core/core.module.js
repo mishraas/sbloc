@@ -5,6 +5,7 @@ require('angular-sanitize');
 require('ngComponentRouter');
 require('angular-ui-bootstrap');
 require('angular-touch');
+require('../../node_modules/angular-ui-select/select.js');
 
 angular.module('core', [
 	'ngCookies',
@@ -13,7 +14,7 @@ angular.module('core', [
 	'genTemplates',
 	'ngComponentRouter',
 	'ui.bootstrap',
-	'ngTouch',
+	'ui.select',
 	require('../components/sblocapp').name,
 	require('../components/loanDetails').name,
 	require('../components/loanListing').name,

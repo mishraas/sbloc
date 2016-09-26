@@ -9,10 +9,17 @@ var loanInfoController = function(loanDetailService) {
 
     $ctrl.enableRateSection = function(){
         loanDetailService.getCurrentRate().then(function(rateInfo){
-            $ctrl.currentRate = rateInfo.data;
+            $ctrl.currentRate = rateInfo;
             $ctrl.showRateSection = !$ctrl.showRateSection;
         }
     );
+    };
+
+     $ctrl.onLoanInfoSave = function(form){
+        if(form.$valid){
+            $ctrl.openCollateralAccordian();
+        }
+        
     };
 
     $ctrl.init();
@@ -22,7 +29,8 @@ loanInfoController.$inject = ['loanDetailService'];
 
 var loanInfoConfig = {
     bindings: {
-        loanReasons: '='
+        loanReasons: '=',
+        openCollateralAccordian : '&'
     },
     templateUrl: 'loanDetails/loanInfo/loanInfo.html',
     controller: loanInfoController

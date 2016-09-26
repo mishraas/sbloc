@@ -2,18 +2,17 @@ angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', functi
 
     // create user variable
 
-    function isLoggedIn(){
-            var isLoggedIn = $cookies.get('user-token');
-            console.log(isLoggedIn + " :user-token");
-            return isLoggedIn;
-        }
+    function isLoggedIn() {
+        var isLoggedIn = $cookies.get('user-token');
+        return isLoggedIn;
+    }
 
     function login(user) {
 
         // create a new instance of deferred
         var deferred = $q.defer();
 
-        
+
         // send a post request to the server
         $http.post('/api/login', {
                 email: user.email,
@@ -22,7 +21,6 @@ angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', functi
             })
             // handle success
             .success(function(data, status) {
-                console.log("anshika", data);
                 if (status === 200 && data.status) {
                     $cookies.put('user-token', data["user-token"]);
                     $cookies.put('user-role', data["role"]);
@@ -52,12 +50,12 @@ angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', functi
         $http.get('/user/logout')
             // handle success
             .success(function() {
-               
+
                 deferred.resolve();
             })
             // handle error
             .error(function() {
-              
+
                 deferred.reject();
             });
 
@@ -67,7 +65,7 @@ angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', functi
     }
     // return available functions for use in the controllers
     return ({
-        isLoggedIn:isLoggedIn,
+        isLoggedIn: isLoggedIn,
         login: login,
         logout: logout
 
@@ -75,16 +73,16 @@ angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', functi
 
 }]);
 
-angular.module('core').factory('AuthhttpIntercepter', ['$location', '$cookies', '$injector',  function($location, $cookies, $injector) {
+angular.module('core').factory('AuthhttpIntercepter', ['$location', '$cookies', '$injector', function($location, $cookies, $injector) {
 
     return {
         request: function(config) {
-            
+
             var AuthService = $injector.get('AuthService');
 
             if (AuthService.isLoggedIn()) {
-               
-                console.log("user is logged in");
+                // just to prevent linting error
+                return true;
             } else {
                 $location.path('/login');
             }
@@ -97,8 +95,6 @@ angular.module('core').factory('AuthhttpIntercepter', ['$location', '$cookies', 
         },
 
         response: function(res) {
-
-            console.log(res);
             $cookies.put('user-token', res["user-token"]);
             $cookies.put('user-role', res["role"]);
 

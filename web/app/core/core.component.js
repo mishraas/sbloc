@@ -5,7 +5,7 @@ angular.module('core').component('coreComp', {
 	$routeConfig: [
 		{ path: '/', component: 'loginComp', name: 'Login' },
 		{ path: '/login', component: 'loginComp', name: 'Login' },
-		{ path: '/loan', component: 'loanDetailsComp', name: 'LoanDetails' },
+		{ path: '/LoanDetails', component: 'loanDetailsComp', name: 'LoanDetails' },
 		{ path: '/loanlisting', component: 'loanListingComp', name: 'LoanListing' }
 		
 	]
