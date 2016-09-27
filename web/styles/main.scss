@@ -1,5 +1,11 @@
 @import './node_modules/bootstrap-sass/assets/stylesheets/_bootstrap';
-@import './node_modules/angular-ui-select/select';
+@import './node_modules/ui-select/dist/select';
+
+div.well{
+	overflow : scroll;
+	height : 300px;
+}
+
 
 
 

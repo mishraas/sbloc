@@ -3,9 +3,8 @@ require('angular-cookies');
 require('angular-animate');
 require('angular-sanitize');
 require('ngComponentRouter');
-require('angular-ui-bootstrap');
 require('angular-touch');
-require('../../node_modules/angular-ui-select/select.js');
+require('ui-select');
 
 angular.module('core', [
 	'ngCookies',

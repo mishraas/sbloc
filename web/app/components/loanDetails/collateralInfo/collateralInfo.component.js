@@ -4,7 +4,13 @@ var collateralInfoController = function(loanDetailService) {
     var $ctrl = this;
     $ctrl.init = function() {
         $ctrl.collateralAccountList = loanDetailService.collateralAccountList;
+        $ctrl.enableSecuritySection = false;
     };
+
+    $ctrl.showSecuritySection = function(){
+        $ctrl.enableSecuritySection = true;
+    };
+    
     $ctrl.init();
 
 };

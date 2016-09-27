@@ -1,12 +1,8 @@
 'use strict';
 require('angular');
-window.jQuery = require('jquery');
-//var window.jQuery = window.$;
-//require('bootstrap-sass');
-//require('angular-ui-bootstrap');
-//require('angular-bootstrap/ui-bootstrap-tpls');
-
+window.$ = require('jquery');
+window.jQuery = window.$;
+require('bootstrap-sass');
+require('angular-ui-bootstrap');
 require('./core');
-
-
 require('./temp/templates');

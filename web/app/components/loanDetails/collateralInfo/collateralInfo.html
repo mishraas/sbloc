@@ -1,8 +1,9 @@
 <div class="row">
     <div class="col-sm-3">
-        <account-comp collateral-account-list="$ctrl.collateralAccountList"></account-comp>
+        <account-comp collateral-account-list="$ctrl.collateralAccountList"
+        security-section-enable="$ctrl.showSecuritySection()"></account-comp>
     </div>
     <div class=" col-sm-8">
-        <security-comp></security-comp>
+        <security-comp ng-if="$ctrl.enableSecuritySection"></security-comp>
     </div>
 </div>

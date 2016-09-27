@@ -2,6 +2,7 @@
 
 angular.module('core').service('loanDetailService', function(apiCallService) {
     var self = this;
+    self.loanAmount = '';
     var baseApiUrl = '/api';
     var urls = {
         useOfloan: baseApiUrl + '/useofloans',
@@ -25,8 +26,8 @@ angular.module('core').service('loanDetailService', function(apiCallService) {
         });
     };
 
-    self.getCollateralAccountList = function() {
-        return apiCallService.getApiData(urls.currentRate);
+    self.getAccountSecurityDetails = function() {
+        return apiCallService.getApiData(urls.collateralaccountsecuritydetails);
     };
 
     return self;
