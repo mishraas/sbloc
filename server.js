@@ -9,6 +9,11 @@ app.use('/api', apiRouter);
 
 app.use(express.static('./public'));
 
+//URL Rewriting for angular routes
+app.use(function(req, res) {
+    res.sendfile(__dirname + '/public/index.html');
+});
+
 //Welcome file : default route
 //app.get('/', function(req, res) {
 //    res.sendFile(path.join(__dirname+'/public/index.html'));

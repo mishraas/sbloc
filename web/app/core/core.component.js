@@ -10,5 +10,6 @@ angular.module('core').component('coreComp', {
 		{ path: '/loanlisting', component: 'loanListingComp', name: 'LoanListing' }
 		
 	]
+
 }).value('$routerRootComponent', 'coreComp');
 
