@@ -1,10 +1,7 @@
 angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', function($q, $http, $cookies) {
 
-    // create user variable
-
     function isLoggedIn() {
-        var isLoggedIn = $cookies.get('user-token');
-        return isLoggedIn;
+        return $cookies.get('user-token') ? true : false;
     }
 
     function login(user) {
@@ -18,10 +15,10 @@ angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', functi
                 email: user.email,
                 password: user.password,
                 role: user.userRole
-            })
+        })
             // handle success
             .success(function(data, status) {
-                if (status === 200 && data.status) {
+                if (status === 200 && data) {
                     $cookies.put('user-token', data["user-token"]);
                     $cookies.put('user-role', data["role"]);
                     deferred.resolve();
@@ -50,7 +47,8 @@ angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', functi
         $http.get('/user/logout')
             // handle success
             .success(function() {
-
+$cookies.remove('user-token');
+$cookies.remove('user-role');
                 deferred.resolve();
             })
             // handle error
@@ -73,6 +71,7 @@ angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', functi
 
 }]);
 
+
 angular.module('core').factory('AuthhttpIntercepter', ['$location', '$cookies', '$injector', function($location, $cookies, $injector) {
 
     return {
@@ -82,7 +81,7 @@ angular.module('core').factory('AuthhttpIntercepter', ['$location', '$cookies', 
 
             if (AuthService.isLoggedIn()) {
                 // just to prevent linting error
-                return true;
+                return config;
             } else {
                 $location.path('/login');
             }
@@ -95,9 +94,9 @@ angular.module('core').factory('AuthhttpIntercepter', ['$location', '$cookies', 
         },
 
         response: function(res) {
-            $cookies.put('user-token', res["user-token"]);
-            $cookies.put('user-role', res["role"]);
-
+           /* $cookies.put('user-token', res["data"]["user-token"]);
+            $cookies.put('user-role', res["data"]["role"]);
+            */
             return res;
         },
 
@@ -106,3 +105,4 @@ angular.module('core').factory('AuthhttpIntercepter', ['$location', '$cookies', 
         }
     };
 }]);
+
