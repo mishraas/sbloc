@@ -1,6 +1,11 @@
 "use strict";
 
-var collateralInfoController = function() {
+var collateralInfoController = function(loanDetailService) {
+    var $ctrl = this;
+    $ctrl.init = function() {
+        $ctrl.collateralAccountList = loanDetailService.collateralAccountList;
+    };
+    $ctrl.init();
 
 };
 

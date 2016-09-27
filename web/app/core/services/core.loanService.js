@@ -5,8 +5,9 @@ angular.module('core').service('loanDetailService', function(apiCallService) {
     var baseApiUrl = '/api';
     var urls = {
         useOfloan: baseApiUrl + '/useofloans',
-        currentRate : baseApiUrl + '/currentrate'
-
+        currentRate: baseApiUrl + '/currentrate',
+        collateralAccountList: baseApiUrl + '/collateralaccountlist',
+        collateralaccountsecuritydetails: baseApiUrl + '/collateralaccountsecuritydetails'
     };
 
     self.getLoanReasons = function() {
@@ -14,7 +15,18 @@ angular.module('core').service('loanDetailService', function(apiCallService) {
     };
 
     self.getCurrentRate = function() {
-         return apiCallService.getApiData(urls.currentRate);
+        return apiCallService.getApiData(urls.currentRate);
+    };
+
+    self.getCollateralAccountList = function(openCollateralAccordian) {
+        apiCallService.getApiData(urls.collateralAccountList).then(function(collateralAccountList) {
+            self.collateralAccountList = collateralAccountList.collateralAccount;
+            openCollateralAccordian();
+        });
+    };
+
+    self.getCollateralAccountList = function() {
+        return apiCallService.getApiData(urls.currentRate);
     };
 
     return self;

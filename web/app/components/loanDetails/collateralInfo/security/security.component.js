@@ -1,9 +1,25 @@
 "use strict";
 
-angular.module('loanDetails').component('securityComp', {
+var securityDetailsController = function(loanDetailService) {
+    var $ctrl = this;
+    $ctrl.init = function() {
+        $ctrl.showLoanFormSection = false;
+        $ctrl.collateralAccountDetails = loanDetailService.getAccountSecurityDetails();
+    };
 
-	bindings:{},
-	templateUrl: 'loanDetails/collateralInfo/security/security.html',
-	controller:function(){}
+    $ctrl.init();
+};
 
-});
+securityDetailsController.$inject = ['loanDetailService'];
+
+var securityDetailsConfig = {
+
+    bindings: {
+        collateralAccountList: '<'
+    },
+    templateUrl: 'loanDetails/collateralInfo/security/security.html',
+    controller: securityDetailsController
+
+};
+
+angular.module('loanDetails').component('securityComp', securityDetailsConfig);

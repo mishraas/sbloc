@@ -17,7 +17,7 @@ var loanInfoController = function(loanDetailService) {
 
      $ctrl.onLoanInfoSave = function(form){
         if(form.$valid){
-            $ctrl.openCollateralAccordian();
+            loanDetailService.getCollateralAccountList($ctrl.openCollateralAccordian);
         }
         
     };
