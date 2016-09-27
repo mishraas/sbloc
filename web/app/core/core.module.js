@@ -19,6 +19,7 @@ angular.module('core', [
 	require('../components/loanDetails').name,
 	require('../components/loanListing').name,
 	require('../components/login').name
+
 	
 	]);
 

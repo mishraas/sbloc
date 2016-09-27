@@ -5,13 +5,10 @@ angular.module('core').component('coreComp', {
 	$routeConfig: [
 		{ path: '/', component: 'loginComp', name: 'Login' },
 		{ path: '/login', component: 'loginComp', name: 'Login' },
+		{ path: '/logout', component: 'loginComp', name: 'Logout' },
 		{ path: '/LoanDetails', component: 'loanDetailsComp', name: 'LoanDetails' },
 		{ path: '/loanlisting', component: 'loanListingComp', name: 'LoanListing' }
 		
 	]
 }).value('$routerRootComponent', 'coreComp');
 
-
-angular.module('core').config(['$httpProvider', function($httpProvider) {  
-    $httpProvider.interceptors.push('AuthhttpIntercepter');
-}]);

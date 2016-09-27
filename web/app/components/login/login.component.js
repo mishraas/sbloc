@@ -6,7 +6,7 @@ angular.module('login', []).component('loginComp', {
 	},
 	templateUrl: 'login/login.html',
 	controller:function(AuthService){
-		this.user={email:"",userRole:"lender",password:""};
+		this.user={email:"",password:""};
 
 		this.login=function(){
 

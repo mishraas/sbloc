@@ -1,10 +1,6 @@
 angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', function($q, $http, $cookies) {
-
-    // create user variable
-
-    function isLoggedIn() {
-        var isLoggedIn = $cookies.get('user-token');
-        return isLoggedIn;
+    function isLoggedIn() {        
+        return _getUserCookies() ? true : false;
     }
 
     function login(user) {
@@ -16,23 +12,22 @@ angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', functi
         // send a post request to the server
         $http.post('/api/login', {
                 email: user.email,
-                password: user.password,
-                role: user.userRole
-            })
+                password: user.password              
+        })
             // handle success
             .success(function(data, status) {
-                if (status === 200 && data.status) {
-                    $cookies.put('user-token', data["user-token"]);
-                    $cookies.put('user-role', data["role"]);
+                if (status === 200 && data) {
+                    console.log("data",data);
+                    _setUserCookies(JSON.stringify(data));
                     deferred.resolve();
                 } else {
-
+                    _resetUserCookies();
                     deferred.reject();
                 }
             })
             // handle error
             .error(function() {
-                user = false;
+                _resetUserCookies();
                 deferred.reject();
             });
 
@@ -50,12 +45,12 @@ angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', functi
         $http.get('/user/logout')
             // handle success
             .success(function() {
-
+                _resetUserCookies();
                 deferred.resolve();
             })
             // handle error
             .error(function() {
-
+                _resetUserCookies();
                 deferred.reject();
             });
 
@@ -63,15 +58,36 @@ angular.module('core').factory('AuthService', ['$q', '$http', '$cookies', functi
         return deferred.promise;
 
     }
+
+     function getUserDetail(){
+       // return new UserEntity(_getUserCookies());   
+       return   _getUserCookies();          
+    }
+
+    function _setUserCookies(user){
+       $cookies.putObject('user',user);
+    }
+
+    function _getUserCookies(){
+        return $cookies.get('user');
+    }
+
+    function _resetUserCookies(){
+        $cookies.remove('user');        
+    }
+
+
     // return available functions for use in the controllers
     return ({
         isLoggedIn: isLoggedIn,
         login: login,
-        logout: logout
+        logout: logout,
+        getUserDetail:getUserDetail
 
     });
 
 }]);
+
 
 angular.module('core').factory('AuthhttpIntercepter', ['$location', '$cookies', '$injector', function($location, $cookies, $injector) {
 
@@ -82,8 +98,11 @@ angular.module('core').factory('AuthhttpIntercepter', ['$location', '$cookies', 
 
             if (AuthService.isLoggedIn()) {
                 // just to prevent linting error
-                return true;
+                console.log("iscookiesSet",AuthService.isLoggedIn() );
+                return config;
             } else {
+                console.log("iscookiesSet",AuthService.isLoggedIn() );
+
                 $location.path('/login');
             }
             return config;
@@ -95,9 +114,7 @@ angular.module('core').factory('AuthhttpIntercepter', ['$location', '$cookies', 
         },
 
         response: function(res) {
-            $cookies.put('user-token', res["user-token"]);
-            $cookies.put('user-role', res["role"]);
-
+          //401,403
             return res;
         },
 
@@ -106,3 +123,4 @@ angular.module('core').factory('AuthhttpIntercepter', ['$location', '$cookies', 
         }
     };
 }]);
+
