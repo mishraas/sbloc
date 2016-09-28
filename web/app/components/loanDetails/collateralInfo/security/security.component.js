@@ -5,11 +5,9 @@ var securityDetailsController = function(loanDetailService) {
     $ctrl.collateralValue = 0;
     $ctrl.init = function() {
         $ctrl.showLoanFormSection = false;
-        loanDetailService.getAccountSecurityDetails().then(function(securityDetails) {
-            $ctrl.accountDetails = securityDetails;
-            $ctrl.loanAmount = '$' + loanDetailService.loanAmount;
-            calculateCollateralAmount($ctrl.accountDetails.securityDetails.data);
-        });
+        $ctrl.accountDetails = $ctrl.securityDetails;
+        $ctrl.loanAmount = '$' + loanDetailService.loanAmount;
+        calculateCollateralAmount($ctrl.accountDetails.securityDetails.data);
     };
 
     function calculateCollateralAmount(securityDetails) {
@@ -26,7 +24,7 @@ securityDetailsController.$inject = ['loanDetailService'];
 var securityDetailsConfig = {
 
     bindings: {
-        collateralAccountList: '<'
+        securityDetails: '='
     },
     templateUrl: 'loanDetails/collateralInfo/security/security.html',
     controller: securityDetailsController

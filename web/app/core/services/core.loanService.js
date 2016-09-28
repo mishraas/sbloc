@@ -2,6 +2,7 @@
 
 angular.module('core').service('loanDetailService', function(apiCallService) {
     var self = this;
+    self.selectedAccountList = [];
     self.loanAmount = '';
     var baseApiUrl = '/api';
     var urls = {
@@ -26,7 +27,7 @@ angular.module('core').service('loanDetailService', function(apiCallService) {
         });
     };
 
-    self.getAccountSecurityDetails = function() {
+    self.fetchSecurityList = function() {
         return apiCallService.getApiData(urls.collateralaccountsecuritydetails);
     };
 

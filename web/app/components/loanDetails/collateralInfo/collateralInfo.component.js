@@ -4,14 +4,20 @@ var collateralInfoController = function(loanDetailService) {
     var $ctrl = this;
     $ctrl.init = function() {
         $ctrl.collateralAccountList = loanDetailService.collateralAccountList;
-        $ctrl.selectedAccountList = [];
+        $ctrl.securityDetails = {};
         $ctrl.enableSecuritySection = false;
     };
 
     $ctrl.showSecuritySection = function(){
-        console.log($ctrl.selectedAccountList);
-        $ctrl.enableSecuritySection = true;
+        fetchSecurityList(loanDetailService.selectedAccountList);
     };
+
+    function fetchSecurityList(securityList){
+        loanDetailService.fetchSecurityList(securityList).then(function(securityDetails){
+                $ctrl.securityDetails = securityDetails;
+                $ctrl.enableSecuritySection = true;
+        });
+    }
     
     $ctrl.init();
 

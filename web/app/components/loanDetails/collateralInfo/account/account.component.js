@@ -1,7 +1,8 @@
 "use strict";
 
-function collateralAccountController() {
+function collateralAccountController(loanDetailService) {
     var $ctrl = this;
+    var selectedAccountList = [];
     $ctrl.noAccountSelectedMessage = false;
     $ctrl.init = function() {
         $ctrl.showAccountSection = $ctrl.collateralAccountList.length ? true : false;
@@ -9,8 +10,9 @@ function collateralAccountController() {
     };
 
     $ctrl.enableSecuritySection = function() {
-        $ctrl.selectedAccountList = getSelectedCollateralAccounts($ctrl.collateralAccountList);
-        if($ctrl.selectedAccountList.length){
+        selectedAccountList = getSelectedCollateralAccounts($ctrl.collateralAccountList);
+        if(selectedAccountList.length){
+            loanDetailService.selectedAccountList = selectedAccountList;
               $ctrl.securitySectionEnable();
         }else{
             $ctrl.noAccountSelectedMessage = true;
@@ -28,7 +30,7 @@ function collateralAccountController() {
     $ctrl.init();
 }
 
-collateralAccountController.$inject = [];
+collateralAccountController.$inject = ['loanDetailService'];
 
 var collateralAccountConfig = {
 
